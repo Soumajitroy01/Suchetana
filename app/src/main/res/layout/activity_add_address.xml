@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.Til"
+    tools:context=".Activity.AddAddressActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar01"
+        android:backgroundTint="@color/orange">
+
+        <!--Back Button-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_black"
+            android:tint="@color/white" />
+
+        <!--Title-->
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:text="Add address"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/bodySv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl"
+        android:layout_margin="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Name-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <EditText
+                    android:id="@+id/nameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:inputType="textPersonName|textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Address-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addressTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameTil"
+                android:layout_marginTop="20dp"
+                android:hint="Address*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <EditText
+                    android:id="@+id/addressEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Mobile No.-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobileTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressTil"
+                android:layout_marginTop="20dp"
+                android:hint="Mobile No.*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <EditText
+                    android:id="@+id/mobileEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Country-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/countryTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mobileTil"
+                android:layout_marginTop="20dp"
+                android:hint="Country*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <AutoCompleteTextView
+                    android:id="@+id/countryTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--State-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/stateTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/countryTil"
+                android:layout_marginTop="20dp"
+                android:hint="State*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <AutoCompleteTextView
+                    android:id="@+id/stateTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--City-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cityTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stateTil"
+                android:layout_marginTop="20dp"
+                android:hint="City*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <AutoCompleteTextView
+                    android:id="@+id/cityTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Postal Code-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pinTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cityTil"
+                android:layout_marginTop="20dp"
+                android:hint="Postal Code*"
+                android:textColorHint="@color/gray03"
+                app:boxStrokeColor="@color/gray03"
+                app:boxStrokeErrorColor="@color/red"
+                app:hintTextColor="@color/gray03">
+
+                <EditText
+                    android:id="@+id/pinEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray03" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pinTil"
+                android:layout_marginTop="20dp"
+                android:text="*Required fields"
+                android:textColor="@color/gray03" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.widget.Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_button03"
+        android:backgroundTint="@color/orange"
+        android:text="Add Address"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

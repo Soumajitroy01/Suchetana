@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AboutUsActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar01">
+
+        <!--Back Button-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_black" />
+
+        <!--Title-->
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:text="About Us"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!--Body-->
+    <RelativeLayout
+        android:id="@+id/bodyRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarRl"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <TextView
+            android:id="@+id/aboutUsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="আমাদের সম্পর্কে"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:fontFamily="@font/urbanist_regular"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/descriptionTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_us"
+            android:layout_below="@id/aboutUsTv"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/gray03"/>
+
+        <TextView
+            android:id="@+id/addressTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address:"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/descriptionTv"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/urbanist_regular"/>
+
+        <TextView
+            android:id="@+id/addressDetailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23/H Satchasi Para Lane\nKolkata - 700036"
+            android:inputType="textMultiLine"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/addressTv"
+            android:fontFamily="@font/urbanist_regular"/>
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/addressDetailTv"
+            android:layout_marginTop="5dp"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

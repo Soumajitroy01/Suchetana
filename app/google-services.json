@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "265766656448",
+    "project_id": "suchetana-85de5",
+    "storage_bucket": "suchetana-85de5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265766656448:android:69d1a4a4024b981eb81025",
+        "android_client_info": {
+          "package_name": "com.example.suchetana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265766656448-lvtfp5b85er8jk6mtn0clpmhlfjkisso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.suchetana",
+            "certificate_hash": "b83f4144b7df64d6945fba4c052e3866e1faf4f2"
+          }
+        },
+        {
+          "client_id": "265766656448-evkm0k1jne6m8qh2p61jpmmr9l9i5s5a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnh3LtAq8GHE4TGLOZpRhKxSTCaO9TR7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265766656448-evkm0k1jne6m8qh2p61jpmmr9l9i5s5a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

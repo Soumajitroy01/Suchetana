@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home_black"
+        android:title="Home"/>
+
+    <item android:id="@+id/menu_ebook"
+        android:icon="@drawable/ic_book_black"
+        android:title="E-book"/>
+
+    <item android:id="@+id/menu_feedback"
+        android:icon="@drawable/ic_feedback_black"
+        android:title="Feedback" />
+
+    <item android:id="@+id/menu_about_us"
+        android:icon="@drawable/ic_about_us_black"
+        android:title="About us"/>
+
+    <item android:id="@+id/menu_login"
+        android:icon="@drawable/ic_person_black"
+        android:title="Login/Register"/>
+
+</menu>

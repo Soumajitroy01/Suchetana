@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CartActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar01"
+        android:backgroundTint="@color/orange">
+
+        <!--Back Button-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_black"
+            android:tint="@color/white" />
+
+        <!--Title-->
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:text="Cart"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/emptyCartIv"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/cart_empty"/>
+
+    <ScrollView
+        android:id="@+id/bodySv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl"
+        android:layout_above="@id/submitBtn"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Items-->
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/urbanist_bold"
+                android:text="Items:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title1"
+                android:layout_marginTop="5dp"
+                tools:itemCount="1"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/row_cart" />
+
+            <!--Address-->
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/itemRv"
+                android:fontFamily="@font/urbanist_bold"
+                android:text="Address:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/addressLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title3"
+                android:orientation="vertical">
+
+                <!--Existing address-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addressCv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    app:cardBackgroundColor="#EEF6F5"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    app:contentPadding="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!--Name-->
+                        <TextView
+                            android:id="@+id/nameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/urbanist_medium"
+                            android:text="Suchetana"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <!--Address Line 1-->
+                        <TextView
+                            android:id="@+id/addressTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/nameTv"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/urbanist_medium"
+                            android:text="Address Line 1"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <!--Mobile No.-->
+                        <TextView
+                            android:id="@+id/mobileTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/addressTv"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/urbanist_medium"
+                            android:text="Mobile no."
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <!--City/Pin-->
+                        <TextView
+                            android:id="@+id/cityTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/mobileTv"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/urbanist_medium"
+                            android:text="Kolkata - 700036"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <!--State/Country-->
+                        <TextView
+                            android:id="@+id/stateCountryTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cityTv"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/urbanist_medium"
+                            android:text="WestBengal, India."
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <ImageButton
+                            android:id="@+id/deleteAddressBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_delete_orange"
+                            android:background="@android:color/transparent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!--New Address-->
+                <android.widget.Button
+                    android:id="@+id/addAddressBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/shape_button03"
+                    android:backgroundTint="@color/orange"
+                    android:gravity="center"
+                    android:text="+ Add new address"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <!--Cart Details-->
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressLL"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/urbanist_bold"
+                android:text="Cart Details:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cartDetailsCv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title2"
+                android:layout_marginBottom="7dp"
+                app:cardBackgroundColor="#EEF6F5"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:contentPadding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!--Cart Total-->
+                    <TextView
+                        android:id="@+id/cartTotalTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Cart Total:"
+                        android:textColor="@color/gray03"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/cartTotalPriceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="₹0"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--Delivery-->
+                    <TextView
+                        android:id="@+id/deliveryTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cartTotalTv"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Delivery Charges:"
+                        android:textColor="@color/gray03"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/deliveryPriceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cartTotalPriceTv"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="₹40"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/noteTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/deliveryTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="*Note: Delivery charges not applicable on orders above ₹499 in India"
+                        android:textColor="@color/red"
+                        android:textSize="10sp" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/noteTv"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/gray03" />
+
+                    <!--Total-->
+                    <TextView
+                        android:id="@+id/totalTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_bold"
+                        android:text="Total:"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/totalPriceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_bold"
+                        android:text="₹40"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!--Payment method-->
+            <TextView
+                android:id="@+id/title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cartDetailsCv"
+                android:fontFamily="@font/urbanist_bold"
+                android:text="Payment Method:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!--Payment methods-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/paymentCv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title4"
+                android:layout_marginBottom="7dp"
+                app:cardBackgroundColor="#EEF6F5"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:contentPadding="5dp">
+
+                <RadioGroup
+                    android:id="@+id/paymentRadioGrp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/onlineRadioBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:checked="true"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Online Payment"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:theme="@style/Theme.Radio" />
+
+                    <RadioButton
+                        android:id="@+id/offlineRadioBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Pay on Delivery"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:theme="@style/Theme.Radio" />
+
+                </RadioGroup>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.widget.Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_button03"
+        android:backgroundTint="@color/orange"
+        android:layout_margin="10dp"
+        android:text="Checkout"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>

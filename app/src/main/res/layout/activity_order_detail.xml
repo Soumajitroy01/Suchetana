@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.OrderDetailActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar01"
+        android:backgroundTint="@color/orange">
+
+        <!--Back Button-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_black"
+            android:tint="@color/white" />
+
+        <!--Toolbar Title-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Order Details"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/bodySv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarRl"
+        android:layout_above="@id/changeStatusBtn"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Book Info-->
+            <RelativeLayout
+                android:id="@+id/bookInfoRl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp">
+
+                <!--Book Preview-->
+                <RelativeLayout
+                    android:id="@+id/pdfRl"
+                    android:layout_width="60dp"
+                    android:layout_height="84dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/gray02">
+
+                    <!--Pdf view-->
+                    <com.github.barteksc.pdfviewer.PDFView
+                        android:id="@+id/pdfView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:id="@+id/pdfIv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/back01" />
+
+                </RelativeLayout>
+
+                <!--Book Title-->
+                <TextView
+                    android:id="@+id/titleTv"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/pdfRl"
+                    android:text="Title of Book" />
+
+                <!--Table-->
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleTv"
+                    android:layout_toEndOf="@id/pdfRl">
+
+                    <!--Category Row-->
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/categoryLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="Category" />
+
+                        <TextView
+                            android:id="@+id/categoryTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                    <!--Author Row-->
+                    <TableRow android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/authorLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="Author" />
+
+                        <TextView
+                            android:id="@+id/authorTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                    <!--Publisher Row-->
+                    <TableRow android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/publisherLabelTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="Publisher" />
+
+                        <TextView
+                            android:id="@+id/publisherTv"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </RelativeLayout>
+
+            <!--Status Area-->
+            <RelativeLayout
+                android:id="@+id/statusAreaRl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bookInfoRl"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <View
+                    android:id="@+id/orderedView"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/shape_status_current"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/orderedTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/orderedView"
+                    android:text="Ordered"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"/>
+
+                <View
+                    android:id="@+id/connector1"
+                    android:layout_width="2dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_below="@id/orderedView"
+                    android:background="@color/gray" />
+
+                <View
+                    android:id="@+id/shippedView"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/shape_status_remaining"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@id/connector1"/>
+
+                <TextView
+                    android:id="@+id/shippedTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/shippedView"
+                    android:layout_below="@id/connector1"
+                    android:text="Shipped"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"/>
+
+                <View
+                    android:id="@+id/connector2"
+                    android:layout_width="2dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/shippedView"
+                    android:layout_marginLeft="28dp"
+                    android:background="@color/gray" />
+
+                <View
+                    android:id="@+id/deliveredView"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/shape_status_remaining"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@id/connector2"/>
+
+                <TextView
+                    android:id="@+id/deliveredTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/deliveredView"
+                    android:text="Delivered"
+                    android:layout_below="@id/connector2"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"/>
+
+            </RelativeLayout>
+
+            <!--Existing address-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/addressCv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/statusAreaRl"
+                android:layout_marginBottom="7dp"
+                app:cardBackgroundColor="#EEF6F5"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:contentPadding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!--Name-->
+                    <TextView
+                        android:id="@+id/nameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Suchetana"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--Address Line 1-->
+                    <TextView
+                        android:id="@+id/addressTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nameTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Address Line 1"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--Mobile No.-->
+                    <TextView
+                        android:id="@+id/mobileTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/addressTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Mobile no."
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--City/Pin-->
+                    <TextView
+                        android:id="@+id/cityTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mobileTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Kolkata - 700036"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--State/Country-->
+                    <TextView
+                        android:id="@+id/stateCountryTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cityTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="WestBengal, India."
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--Status-->
+                    <TextView
+                        android:id="@+id/statusTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stateCountryTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Status: Ordered"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+
+                    <!--Mode-->
+                    <TextView
+                        android:id="@+id/modeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/statusTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Payment Mode: Online"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--Type-->
+                    <TextView
+                        android:id="@+id/typeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/modeTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Type: Hardcover"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <!--Quantity-->
+                    <TextView
+                        android:id="@+id/qtyTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/typeTv"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Quantity: qty"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/qtyTv"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/gray03" />
+
+                    <!--Refund/Return-->
+                    <TextView
+                        android:id="@+id/returnTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/urbanist_medium"
+                        android:text="Cancel Order"
+                        android:textColor="@color/red"
+                        android:textSize="14sp" />
+
+                    <ImageButton
+                        android:id="@+id/returnNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider"
+                        android:layout_alignParentEnd="true"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_next_gray"
+                        android:tint="@color/red" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.widget.Button
+        android:id="@+id/changeStatusBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_button04"
+        android:text="Status"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>

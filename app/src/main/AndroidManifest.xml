@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.suchetana">
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        android:screenOrientation="nosensor">
+        <activity android:name=".Activity.OrderListAdminActivity"></activity>
+        <activity android:name=".Activity.OrderAdminActivity" />
+        <activity android:name=".Activity.OrderDetailActivity" />
+        <activity android:name=".Activity.OrderActivity" />
+        <activity android:name=".Activity.AddAddressActivity" />
+        <activity android:name=".Activity.CartActivity" />
+        <activity android:name=".Activity.DashboardFeedbackActivity" />
+        <activity android:name=".Activity.ProfileEditActivity" />
+        <activity android:name=".Activity.ProfileActivity" />
+        <activity android:name=".Activity.AboutUsActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <activity android:name=".Activity.WishListActivity" />
+        <activity android:name=".Activity.SearchActivity" />
+        <activity
+            android:name=".Activity.ContactActivity"
+            android:theme="@style/Theme.Suchetana" />
+        <activity android:name=".Activity.PdfViewActivity" />
+        <activity android:name=".Activity.PdfEditActivity" />
+        <activity android:name=".Activity.PdfDetailActivity" />
+        <activity android:name=".Activity.PdfListAdminActivity" />
+        <activity android:name=".Activity.PdfAddActivity" />
+        <activity android:name=".Activity.CategoryAddActivity" />
+        <activity android:name=".Activity.DashboardCategoryActivity" />
+        <activity android:name=".Activity.SliderImageAddActivity" />
+        <activity android:name=".Activity.DashboardImageActivity" />
+        <activity android:name=".Activity.DashboardAdminActivity" />
+        <activity android:name=".Activity.VerifyOtpActivity" />
+        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
